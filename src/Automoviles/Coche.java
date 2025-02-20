@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Coche extends Vehiculo {
 	
 //	============= ATRIBUTOS =============
-	private ArrayList<Coche> coches = new ArrayList<Coche>();
+	private ArrayList<Vehiculo> coches = new ArrayList<Vehiculo>();
 	private int numPuertas;
 	private int velocidadMax;
 	
@@ -20,10 +20,10 @@ public class Coche extends Vehiculo {
 	}
 	
 //	============= GETTERS & SETTERS =============
-	public ArrayList<Coche> getCoches() {
+	public ArrayList<Vehiculo> getCoches() {
 		return coches;
 	}
-	public void setCoches(ArrayList<Coche> coches) {
+	public void setCoches(ArrayList<Vehiculo> coches) {
 		this.coches = coches;
 	}
 	
@@ -48,6 +48,19 @@ public class Coche extends Vehiculo {
 		System.out.println("Parando el coche...");
 		
 		return pararVehiculo();
+	}
+	
+	@Override
+	public void mostrarVehiculo () {
+		
+		System.out.println("\nMatricula: " + matricula);
+		System.out.println("Marca: " + marca);
+		System.out.println("Modelo: " + modelo);
+		System.out.println("Potencia: " + potencia + "cv");
+		System.out.println("Arrancado: " + arrancado);
+		System.out.println("Numero de puertas: " + numPuertas);
+		System.out.println("Velocidad máxima: " + velocidadMax + "\n");
+		
 	}
 	
 }

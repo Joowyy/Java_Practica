@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Moto extends Vehiculo {
 
 //	============= ATRIBUTOS =============
-	private ArrayList<Moto> motos = new ArrayList<Moto>();
+	private ArrayList<Vehiculo> motos = new ArrayList<Vehiculo>();
 	private boolean pataCabra;
 	
 //	============= CONSTRUCTORES =============
@@ -18,10 +18,10 @@ public class Moto extends Vehiculo {
 	}
 	
 //	============= GETTERS & SETTERS =============
-	public ArrayList<Moto> getMotos() {
+	public ArrayList<Vehiculo> getMotos() {
 		return motos;
 	}
-	public void setMotos(ArrayList<Moto> motos) {
+	public void setMotos(ArrayList<Vehiculo> motos) {
 		this.motos = motos;
 	}
 	
@@ -44,6 +44,18 @@ public class Moto extends Vehiculo {
 		System.out.println("Has quitado la pata de cabra de tu moto");
 		
 		return pataCabra = false;
+	}
+	
+	@Override
+	public void mostrarVehiculo () {
+		
+		System.out.println("\nMatricula: " + matricula);
+		System.out.println("Marca: " + marca);
+		System.out.println("Modelo: " + modelo);
+		System.out.println("Potencia: " + potencia + "cv");
+		System.out.println("Arrancado: " + arrancado);
+		System.out.println("Pata de cabra: " + pataCabra + "\n");
+		
 	}
 	
 }
