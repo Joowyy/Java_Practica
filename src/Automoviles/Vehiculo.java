@@ -1,6 +1,6 @@
 package Automoviles;
 
-public class Vehiculo {
+public abstract class Vehiculo {
 
 //	============= ATRIBUTOS =============
 	protected String matricula;
@@ -58,31 +58,16 @@ public class Vehiculo {
 	}
 	
 //	============= METODOS =============
-//	Setea el boolean a 'true' para arrancarlo
-	public boolean arrancarVehiculo () {
-		
-		System.out.println("El vehiculo esta arrancando.");
-		
-		return arrancado = true;
-	}
+//	Hacemos un metodo abstracto, este está vacio
+//	Pero le decimos que estará en otras clases.
+	public abstract boolean arrancar ();
 	
-//	Setea el boolean a 'false' para detenerlo
-	public boolean pararVehiculo () {
-		
-		System.out.println("El vehiculo ha sido detenido.");
-		
-		return arrancado = false;
-	}
+//	Hacemos un metodo abstracto, este está vacio
+//	Pero le decimos que estará en otras clases.
+	public abstract boolean parar ();
 	
-//	Nos muestra el vehiculo entero
-	public void mostrarVehiculo () {
-		
-		System.out.println("\nMatricula: " + matricula);
-		System.out.println("Marca: " + marca);
-		System.out.println("Modelo: " + modelo);
-		System.out.println("Potencia: " + potencia + "cv");
-		System.out.println("Arrancado: " + arrancado + "\n");
-		
-	}
+//	Hacemos un metodo abstracto, este está vacio
+//	Pero le decimos que estará en otras clases.
+	public abstract void mostrarVehiculo ();
 	
 }

@@ -33,19 +33,6 @@ public class Moto extends Vehiculo {
 	}
 	
 //	============= METODOS =============
-	public boolean pararMoto () {
-		
-		System.out.println("Has puesto la pata de cabra de tu moto");
-		
-		return pataCabra = true;
-	}
-	public boolean encenderMoto () {
-		
-		System.out.println("Has quitado la pata de cabra de tu moto");
-		
-		return pataCabra = false;
-	}
-	
 	@Override
 	public void mostrarVehiculo () {
 		
@@ -56,6 +43,26 @@ public class Moto extends Vehiculo {
 		System.out.println("Arrancado: " + arrancado);
 		System.out.println("Pata de cabra: " + pataCabra + "\n");
 		
+	}
+	
+	@Override
+	public boolean arrancar() {
+		
+		System.out.println("La moto está arrancando");
+		System.out.println("Quitando pata de cabra...");
+		pataCabra = false;
+		
+		return this.arrancado = true;
+	}
+	
+	@Override
+	public boolean parar() {
+		
+		System.out.println("La moto acaba de aparcar");
+		System.out.println("Poniendo pata de cabra...");
+		pataCabra = true;
+		
+		return this.arrancado = false;
 	}
 	
 }

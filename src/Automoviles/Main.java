@@ -15,8 +15,8 @@ public class Main {
 		
 		do {
 		
-			System.out.println("¿Quieres crear un coche o moto nuevo?");
-			switch(respuestaUsuario= sc.nextLine().charAt(0)) {
+			System.out.println("¿Quieres crear un coche o moto nuevo?\n1. Crear coche\n2. Crear moto\n3. Mostrar vehiculos\n4. Salir");
+			switch(respuestaUsuario = sc.nextLine().charAt(0)) {
 			
 			case '1':
 				
@@ -43,24 +43,10 @@ public class Main {
 			}
 
 		} while (respuestaUsuario != '4');
-		
-////		CREAMOS NUESTRO COCHE
-//		Coche c = new Coche("4583JGB", "Skoda", "Kamiq", 115, false, 4, 250);
-//		
-//		System.out.println("==== SKODA ====");
-//		c.mostrarVehiculo();
-//		c.aparcarCoche();
-//		
-////		CREAMOS NUESTRA MOTO
-//		Moto m = new Moto("9684DLW", "Yamaha", "R6", 150, false, true);
-//		
-//		System.out.println("\n==== YAMAHA ====");
-//		m.mostrarVehiculo();
-//		m.encenderMoto();
-//		m.pararVehiculo();
-		
+
 	}
 	
+//	OPCION 1 "Creamos un coche"
 	public static Coche crearCoche () {
 		Scanner sc = new Scanner (System.in);
 		
@@ -87,6 +73,7 @@ public class Main {
 		return c;
 	}
 	
+//	OPCION 2 "Creamos una moto"
 	public static Moto crearMoto () {
 		Scanner sc = new Scanner (System.in);
 		
@@ -111,7 +98,22 @@ public class Main {
 		return m;
 	}
 	
+//	OPCION 3 "Mostramos los datos"
 	public static void mostrarVehiculos() {
+		
+//		Imprimimos los coches con un 'for each'
+		for (Vehiculo c : coches) {
+			
+			c.mostrarVehiculo();
+			
+		}
+		
+//		Imprimimos las motos con un 'for each'
+		for (Vehiculo m : motos) {
+			
+			m.mostrarVehiculo();
+			
+		}
 		
 	}
 

@@ -43,13 +43,6 @@ public class Coche extends Vehiculo {
 
 //	============= METODOS =============
 //	Imprime mensaje de depuracion y llama a un metodo padre
-	public boolean aparcarCoche () {
-		
-		System.out.println("Parando el coche...");
-		
-		return pararVehiculo();
-	}
-	
 	@Override
 	public void mostrarVehiculo () {
 		
@@ -61,6 +54,23 @@ public class Coche extends Vehiculo {
 		System.out.println("Numero de puertas: " + numPuertas);
 		System.out.println("Velocidad máxima: " + velocidadMax + "\n");
 		
+	}
+	
+	@Override
+	public boolean arrancar() {
+		
+		System.out.println("El coche está arrancando\n");
+		
+		return this.arrancado = true;
+	}
+	
+	@Override
+	public boolean parar() {
+		
+		System.out.println("El coche acaba de aparcar");
+		System.out.println("Poniendo freno de mano...\n");
+		
+		return this.arrancado = false;
 	}
 	
 }
