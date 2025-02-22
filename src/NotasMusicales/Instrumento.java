@@ -25,6 +25,10 @@ public abstract class Instrumento {
 	}
 	
 //	============================= METODOS =============================
-	//public abstract void interpretar();
+//	Creamos el metodo abstracto interpretar para las demas clases
+	public abstract void interpretar();
+	
+//	Creamos el metodo abstracto mostrarInstrumento para las clases
+	public abstract void mostrarInstrumento();
 	
 }
