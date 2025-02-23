@@ -1,21 +1,20 @@
 package NotasMusicales;
 
+import java.util.ArrayList;
+
 public class Guitarra extends Instrumento {
 
 //	============================= ATRIBUTOS =============================
 	private int cuerdas;
 	private boolean guitarraElectrica = false;
 	private String nombreGuitarrista;
-	private String notasMusicalesGuitarra;
 
 	//	============================= CONSTRUCTORES =============================
 	Guitarra () {
 		
 	}
-	Guitarra (String notasMusicalesGuitarra) {
-		this.notasMusicalesGuitarra = notasMusicalesGuitarra;
-	}
-	Guitarra (int cuerdas, boolean guitarraElectrica, String nombreGuitarrista) {
+	Guitarra (int cuerdas, boolean guitarraElectrica, String nombreGuitarrista, ArrayList<String> notasMusicales) {
+		super(notasMusicales);
 		this.cuerdas = cuerdas;
 		this.guitarraElectrica = guitarraElectrica;
 		this.nombreGuitarrista = nombreGuitarrista;
@@ -42,14 +41,7 @@ public class Guitarra extends Instrumento {
 	public void setNombreGuitarrista(String nombreGuitarrista) {
 		this.nombreGuitarrista = nombreGuitarrista;
 	}
-	
-	public String getNotasMusicalesGuitarra() {
-		return notasMusicalesGuitarra;
-	}
-	public void setNotasMusicalesGuitarra(String notasMusicalesGuitarra) {
-		this.notasMusicalesGuitarra = notasMusicalesGuitarra;
-	}
-	
+
 //	============================= METODOS =============================
 	@Override
 	public void interpretar() {
@@ -58,6 +50,11 @@ public class Guitarra extends Instrumento {
 	
 	@Override
 	public void mostrarInstrumento() {
+		
+		System.out.println("\nNombre guitarrista -> " + nombreGuitarrista);
+		System.out.println("Guitarra electrica -> " + guitarraElectrica);
+		System.out.println("Numero de cuerdas -> " + cuerdas);
+		mostrarNotas();
 		
 	}
 	

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-	static ArrayList<Instrumento> notasMusicales = new ArrayList<Instrumento>();
+	static ArrayList<String> notasMusicales = new ArrayList<String>();
 	
 	public static void main(String[] args) {
 
@@ -45,8 +45,9 @@ public class Main {
 		
 	}
 	
-	public static ArrayList<Instrumento> agregarPartitura(ArrayList<String> notasUsuario) {
+	public static ArrayList<String> agregarPartitura(ArrayList<String> notasUsuario) {
 		Scanner sc = new Scanner (System.in);
+		boolean partituraTerminada = false;
 		
 		System.out.println("¿De que instrumento quieres añadir la partitura? -> \n1. Piano\n2. Guitarra");
 		System.out.println("Según la elección, tendrás que poner distintos datos de cada instrumento");
@@ -62,42 +63,67 @@ public class Main {
 			
 			System.out.println("Adelante! Grabaremos una partitura con el piano\nCuando acabes de agregarla introduce la tecla 'x'");
 			
-			while (true) { // Bucle infinito hasta que se ingrese "salir"
+			while (partituraTerminada != true) { // Bucle infinito hasta que se ingrese "salir"
 				
 	            String nota = sc.nextLine();
 	            
 	            if (nota.equalsIgnoreCase("x")) {
 	            	
+	            	partituraTerminada = true;
 	                break; // Salimos del bucle cuando el usuario escriba "salir"
 	                
 	            }
 	            
 //	            Agregamos la nota en un ArrayList de notas
-	            notasUsuario.add(nota); // Agregamos la nota a la lista
+	            notasMusicales.add(nota); // Agregamos la nota a la lista
 	            
 	        }
 			
 //			Creamos el objeto agregando un ArrayList en el constructor de Piano
-			Piano p = new Piano(marcaPianoUsu, nombrePianistaUsu, notasUsuario);
-			notasMusicales.add(p);
+			Piano p = new Piano(marcaPianoUsu, nombrePianistaUsu, notasMusicales);
 			
 //			Mostramos la partitura junto los datos del Pianista
 			p.mostrarInstrumento();
 			
 		} else if (instrumentoUsuario == '2') {
 			
-			//do {
+			System.out.println("¿Tocará una guitarra eléctrica o no? false / true");
+			boolean guitarraElecOno = sc.nextBoolean();
+			System.out.println("¿Cuantas cuerdas tendrá tu guitarra?");
+			int cuerdasGuitarraUsu = sc.nextInt();
+			sc.nextLine();
+			System.out.println("¿Y como se llamará el guitarrista jefe?");
+			String nombreGuitarristaUsu = sc.nextLine();
+			
+			System.out.println("Adelante! Grabaremos una partitura con el piano\nCuando acabes de agregarla introduce la tecla 'x'");
+			
+			while (partituraTerminada != true) { // Bucle infinito hasta que se ingrese "salir"
 				
-				//notasUsuario = sc.nextLine();
-				
-			//} while (notasUsuario[].equalsIgnoreCase("x"));
+	            String nota = sc.nextLine();
+	            
+	            if (nota.equalsIgnoreCase("x")) {
+	            	
+	            	partituraTerminada = true;
+	                break; // Salimos del bucle cuando el usuario escriba "salir"
+	                
+	            }
+	            
+//	            Agregamos la nota en un ArrayList de notas
+	            notasMusicales.add(nota); // Agregamos la nota a la lista
+	            
+	        }
+			
+//			Creamos el objeto agregando un ArrayList en el constructor de Piano
+			Guitarra g = new Guitarra(cuerdasGuitarraUsu, guitarraElecOno, nombreGuitarristaUsu, notasMusicales);
+			
+//			Mostramos la partitura junto los datos del Pianista
+			g.mostrarInstrumento();
 			
 		} else {
 			
 			System.out.println("Has introducido un número inválido.");
 			
 		}
-		
 		
 		return notasMusicales;
 	}

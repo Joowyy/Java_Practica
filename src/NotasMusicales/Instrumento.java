@@ -5,26 +5,38 @@ import java.util.ArrayList;
 public abstract class Instrumento {
 
 //	============================= ATRIBUTOS =============================
-	private ArrayList<Instrumento> notasMusicales = new ArrayList<Instrumento>();
+	protected ArrayList<String> notasMusicales = new ArrayList<String>();
 	
 //	============================= CONSTRUCTORES =============================
 	Instrumento () {
 		
 	}
-	Instrumento (ArrayList<Instrumento> notasMusicales) {
+	Instrumento (ArrayList<String> notasMusicales) {
 		this.notasMusicales = notasMusicales;
 	}
 	
 //	============================= GETTERS & SETTERS =============================
-	public ArrayList<Instrumento> getNotasMusicales() {
+	public ArrayList<String> getNotasMusicales() {
 		return notasMusicales;
 	}
 
-	public void setNotasMusicales(ArrayList<Instrumento> notasMusicales) {
+	public void setNotasMusicales(ArrayList<String> notasMusicales) {
 		this.notasMusicales = notasMusicales;
 	}
 	
 //	============================= METODOS =============================
+	public void agregarNota(String nota) {
+		
+		notasMusicales.add(nota);
+		
+	}
+	
+	public void mostrarNotas() {
+		
+		System.out.println("Partituras guardadas -> " + notasMusicales + "\n");
+		
+	}
+	
 //	Creamos el metodo abstracto interpretar para las demas clases
 	public abstract void interpretar();
 	
