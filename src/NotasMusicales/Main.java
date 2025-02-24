@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Main {
 
-	static ArrayList<String> notasMusicales = new ArrayList<String>();
 	static ArrayList<Guitarra> guitarras = GestionGuitarra.getGuitarras();
 	static ArrayList<Piano> pianos = GestionPiano.getPianos();
 	
@@ -54,6 +53,8 @@ public class Main {
 		System.out.println("¿De que instrumento quieres añadir la partitura? -> \n1. Piano\n2. Guitarra");
 		System.out.println("Según la elección, tendrás que poner distintos datos de cada instrumento");
 		char instrumentoUsuario = sc.nextLine().charAt(0);
+		
+		ArrayList<String> notasMusicales = new ArrayList<String>();
 		
 //		Segun el instrumento hace una cosa u otra
 		if (instrumentoUsuario == '1') {

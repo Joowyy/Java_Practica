@@ -9,6 +9,7 @@ public class Guitarra extends Instrumento {
 	private int cuerdas;
 	private boolean guitarraElectrica;
 	private String nombreGuitarrista;
+	private ArrayList<String> partituraGuitarrista;
 
 	//	============================= CONSTRUCTORES =============================
 	Guitarra () {
@@ -19,6 +20,7 @@ public class Guitarra extends Instrumento {
 		this.cuerdas = cuerdas;
 		this.guitarraElectrica = guitarraElectrica;
 		this.nombreGuitarrista = nombreGuitarrista;
+		this.partituraGuitarrista = partituraGuitarrista;
 	}
 	
 //	============================= GETTERS & SETTERS =============================
@@ -41,6 +43,13 @@ public class Guitarra extends Instrumento {
 	}
 	public void setNombreGuitarrista(String nombreGuitarrista) {
 		this.nombreGuitarrista = nombreGuitarrista;
+	}
+	
+	public ArrayList<String> getPartituraGuitarrista() {
+		return partituraGuitarrista;
+	}
+	public void setPartitura(ArrayList<String> partituraGuitarrista) {
+		this.partituraGuitarrista = partituraGuitarrista;
 	}
 
 //	============================= METODOS =============================
@@ -66,7 +75,7 @@ public class Guitarra extends Instrumento {
 				
 				try {
 					
-					System.out.println("Tocando partitura con la guitarra...\nEspere...\n");
+					System.out.println("\n🎶🎵 Tocando partitura con la guitarra... 🎵🎶\n🎶🎵 Espere... 🎵🎶\n");
 					Thread.sleep(3000);
 					
 				} catch (InterruptedException e) {

@@ -8,8 +8,9 @@ public class Piano extends Instrumento{
 //	============================= ATRIBUTOS =============================
 	private String marcaPiano;
 	private String nombrePianista;
-	
-//	============================= CONSTRUCTORES =============================
+	//private ArrayList<String> partituraPianista;
+
+	//	============================= CONSTRUCTORES =============================
 	Piano () {
 		
 	}
@@ -17,6 +18,7 @@ public class Piano extends Instrumento{
 		super(notasMusicales);
 		this.marcaPiano = marcaPiano;
 		this.nombrePianista = nombrePianista;
+//		this.partituraPianista = partituraPianista;
 	}
 	
 //	============================= GETTERS & SETTERS =============================
@@ -33,6 +35,13 @@ public class Piano extends Instrumento{
 	public void setNombrePianista(String nombrePianista) {
 		this.nombrePianista = nombrePianista;
 	}
+	
+//	public ArrayList<String> getPartituraPianista() {
+//		return partituraPianista;
+//	}
+//	public void setPartituraPianista(ArrayList<String> partituraPianista) {
+//		this.partituraPianista = partituraPianista;
+//	}
 
 //	============================= METODOS =============================
 	@Override
@@ -57,7 +66,7 @@ public class Piano extends Instrumento{
 			
 			if (partituraUsuario.equalsIgnoreCase(p2.getNombrePianista())) {
 					
-				System.out.println("Tocando partitura...\nEspere 3 segundos...\n");
+				System.out.println("\n🎶🎵 Tocando partitura... 🎵🎶\n🎶🎵 Espere 3 segundos... 🎵🎶\n");
 				
 				try {
 					
