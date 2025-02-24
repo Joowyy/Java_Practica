@@ -6,10 +6,11 @@ import java.util.Scanner;
 public class Main {
 
 	static ArrayList<String> notasMusicales = new ArrayList<String>();
+	static ArrayList<Guitarra> guitarras = GestionGuitarra.getGuitarras();
+	static ArrayList<Piano> pianos = GestionPiano.getPianos();
 	
 	public static void main(String[] args) {
 
-		ArrayList<String> notasUsuario = new ArrayList<String>();
 		Scanner sc = new Scanner (System.in);
 		char respuestaUsuario;
 		
@@ -22,12 +23,13 @@ public class Main {
 			case '1':
 				
 				System.out.println("\nVamos a agregar una nueva nota!");
-				agregarPartitura(notasUsuario);
+				agregarPartitura();
 				break;
 			
 			case '2':
 				
-				//tocarPartitura();
+				System.out.println("\nVayamos a tocar una partitura!!");
+				tocarPartitura();
 				break;
 				
 			case '3':
@@ -45,7 +47,7 @@ public class Main {
 		
 	}
 	
-	public static ArrayList<String> agregarPartitura(ArrayList<String> notasUsuario) {
+	public static ArrayList<String> agregarPartitura() {
 		Scanner sc = new Scanner (System.in);
 		boolean partituraTerminada = false;
 		
@@ -81,6 +83,7 @@ public class Main {
 			
 //			Creamos el objeto agregando un ArrayList en el constructor de Piano
 			Piano p = new Piano(marcaPianoUsu, nombrePianistaUsu, notasMusicales);
+			pianos.add(p);
 			
 //			Mostramos la partitura junto los datos del Pianista
 			p.mostrarInstrumento();
@@ -115,6 +118,7 @@ public class Main {
 			
 //			Creamos el objeto agregando un ArrayList en el constructor de Piano
 			Guitarra g = new Guitarra(cuerdasGuitarraUsu, guitarraElecOno, nombreGuitarristaUsu, notasMusicales);
+			guitarras.add(g);
 			
 //			Mostramos la partitura junto los datos del Pianista
 			g.mostrarInstrumento();
@@ -129,8 +133,23 @@ public class Main {
 	}
 
 	public static void tocarPartitura () {
+		Scanner sc = new Scanner (System.in);
+		Piano pAux = new Piano ();
+		Guitarra gAux = new Guitarra();
 		
+		System.out.println("Aqui tienes todas las partituras guardadas");
+		System.out.println("¿Desea tocar el piano o la guitarra?\n1. Piano\n2. Guitarra");
+		char respuestaUsuario = sc.nextLine().charAt(0);
 		
+		if (respuestaUsuario == '1') {
+			
+			pAux.interpretar();
+			
+		} else if (respuestaUsuario == '2') {
+			
+			gAux.interpretar();
+			
+		}
 		
 	}
 	

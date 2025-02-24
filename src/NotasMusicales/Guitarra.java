@@ -1,12 +1,13 @@
 package NotasMusicales;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Guitarra extends Instrumento {
 
 //	============================= ATRIBUTOS =============================
 	private int cuerdas;
-	private boolean guitarraElectrica = false;
+	private boolean guitarraElectrica;
 	private String nombreGuitarrista;
 
 	//	============================= CONSTRUCTORES =============================
@@ -45,6 +46,42 @@ public class Guitarra extends Instrumento {
 //	============================= METODOS =============================
 	@Override
 	public void interpretar() {
+		Scanner sc = new Scanner(System.in);
+		ArrayList<Guitarra> guitarras = GestionGuitarra.getGuitarras();
+		
+		System.out.println("Aqui tienes todas las partituras a tocar");
+		
+		for (Guitarra g1 : guitarras) {
+			
+			g1.mostrarInstrumento();
+			
+		}
+		
+		System.out.println("Dime el nombre del guitarrista para tocar -> ");
+		String nombreGuitarristaUsu = sc.nextLine();
+		
+		for (Guitarra g2 : guitarras) {
+			
+			if (g2.getNombreGuitarrista().equalsIgnoreCase(nombreGuitarristaUsu)) {
+				
+				try {
+					
+					System.out.println("Tocando partitura con la guitarra...\nEspere...\n");
+					Thread.sleep(3000);
+					
+				} catch (InterruptedException e) {
+					
+					e.printStackTrace();
+					
+				}
+				
+			} else {
+				
+				System.out.println("No se ha encontrado ningun guitarrista por ese nombre");
+				
+			}
+			
+		}
 		
 	}
 	
