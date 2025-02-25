@@ -9,7 +9,6 @@ public class Guitarra extends Instrumento {
 	private int cuerdas;
 	private boolean guitarraElectrica;
 	private String nombreGuitarrista;
-	private ArrayList<String> partituraGuitarrista;
 
 	//	============================= CONSTRUCTORES =============================
 	Guitarra () {
@@ -20,7 +19,6 @@ public class Guitarra extends Instrumento {
 		this.cuerdas = cuerdas;
 		this.guitarraElectrica = guitarraElectrica;
 		this.nombreGuitarrista = nombreGuitarrista;
-		this.partituraGuitarrista = partituraGuitarrista;
 	}
 	
 //	============================= GETTERS & SETTERS =============================
@@ -43,13 +41,6 @@ public class Guitarra extends Instrumento {
 	}
 	public void setNombreGuitarrista(String nombreGuitarrista) {
 		this.nombreGuitarrista = nombreGuitarrista;
-	}
-	
-	public ArrayList<String> getPartituraGuitarrista() {
-		return partituraGuitarrista;
-	}
-	public void setPartitura(ArrayList<String> partituraGuitarrista) {
-		this.partituraGuitarrista = partituraGuitarrista;
 	}
 
 //	============================= METODOS =============================
@@ -75,8 +66,19 @@ public class Guitarra extends Instrumento {
 				
 				try {
 					
-					System.out.println("\n🎶🎵 Tocando partitura con la guitarra... 🎵🎶\n🎶🎵 Espere... 🎵🎶\n");
-					Thread.sleep(3000);
+					System.out.println("\n 🎶🎵 🎶🎵        🎶🎵 🎶🎵 ");
+					
+			        Thread.sleep(1000); // Espera 3 segundos
+			        
+			        System.out.println("   🎶🎵 🎶🎵        🎶🎵 🎶🎵 ");
+			        
+			        Thread.sleep(1000);
+			        
+			        System.out.println(" 🎶🎵 🎶🎵        🎶🎵 🎶🎵 ");
+			        
+			        Thread.sleep(1000);
+			        
+			        System.out.println("   🎶🎵 🎶🎵        🎶🎵 🎶🎵 \n");
 					
 				} catch (InterruptedException e) {
 					
@@ -84,9 +86,41 @@ public class Guitarra extends Instrumento {
 					
 				}
 				
-			} else {
+			}
 				
-				System.out.println("No se ha encontrado ningun guitarrista por ese nombre");
+			if (!nombreGuitarristaUsu.equalsIgnoreCase(g2.getNombreGuitarrista())) {
+					
+				System.out.println("No se ha encontrado a ese autor\n");
+						
+			}
+			
+		}
+		
+	}
+	
+	@Override
+	public void eliminarPartitura() {
+		ArrayList<Guitarra> guitarras = GestionGuitarra.getGuitarras();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		for (Guitarra g1 : guitarras) {
+			
+			g1.mostrarInstrumento();
+			
+		}
+		
+		System.out.println("¿Que partitura del piano desea eliminar? Digame el nombre: ");
+		String nombrePartUsu = sc.nextLine();
+	
+		guitarras.removeIf(Guitarra -> Guitarra.getNombreGuitarrista().equalsIgnoreCase(nombrePartUsu));
+		System.out.println("Partitura borrada correctamente.\n");
+
+		for (Guitarra g2 : guitarras) {
+			
+			if (!g2.getNombreGuitarrista().equalsIgnoreCase(nombrePartUsu)) {
+				
+				System.out.println("No se ha encontrado a ese autor.");
 				
 			}
 			

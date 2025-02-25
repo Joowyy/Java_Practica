@@ -8,7 +8,6 @@ public class Piano extends Instrumento{
 //	============================= ATRIBUTOS =============================
 	private String marcaPiano;
 	private String nombrePianista;
-	//private ArrayList<String> partituraPianista;
 
 	//	============================= CONSTRUCTORES =============================
 	Piano () {
@@ -18,7 +17,6 @@ public class Piano extends Instrumento{
 		super(notasMusicales);
 		this.marcaPiano = marcaPiano;
 		this.nombrePianista = nombrePianista;
-//		this.partituraPianista = partituraPianista;
 	}
 	
 //	============================= GETTERS & SETTERS =============================
@@ -35,13 +33,6 @@ public class Piano extends Instrumento{
 	public void setNombrePianista(String nombrePianista) {
 		this.nombrePianista = nombrePianista;
 	}
-	
-//	public ArrayList<String> getPartituraPianista() {
-//		return partituraPianista;
-//	}
-//	public void setPartituraPianista(ArrayList<String> partituraPianista) {
-//		this.partituraPianista = partituraPianista;
-//	}
 
 //	============================= METODOS =============================
 	@Override
@@ -70,7 +61,19 @@ public class Piano extends Instrumento{
 				
 				try {
 					
-			        Thread.sleep(3000); // Espera 3 segundos
+					System.out.println("\n 🎶🎵 🎶🎵        🎶🎵 🎶🎵 ");
+					
+			        Thread.sleep(1000); // Espera 3 segundos
+			        
+			        System.out.println("   🎶🎵 🎶🎵        🎶🎵 🎶🎵 ");
+			        
+			        Thread.sleep(1000);
+			        
+			        System.out.println(" 🎶🎵 🎶🎵        🎶🎵 🎶🎵 ");
+			        
+			        Thread.sleep(1000);
+			        
+			        System.out.println("   🎶🎵 🎶🎵        🎶🎵 🎶🎵 \n");
 			        
 			    } catch (InterruptedException e) {
 			        
@@ -78,16 +81,47 @@ public class Piano extends Instrumento{
 			    
 			    }
 					
-			} else {
-					
-				System.out.println("No se encontrado ninguna partitura con el nombre especificado");
-					
 			}
 				
+			if (!partituraUsuario.equalsIgnoreCase(p2.getNombrePianista())) {
+				
+				System.out.println("No se ha encontrado a ese autor\n");
+					
+			}
+			
 		}
 
 	}
 
+	@Override
+	public void eliminarPartitura() {
+		Scanner sc = new Scanner(System.in);
+		ArrayList<Piano> pianos = GestionPiano.getPianos();
+		
+		for (Piano p1 : pianos) {
+			
+			p1.mostrarInstrumento();
+			
+		}
+		
+		System.out.println("¿Que partitura del piano desea eliminar? Digame el nombre: ");
+		String nombrePartUsu = sc.nextLine();
+	
+		pianos.removeIf(Piano -> Piano.getNombrePianista().equalsIgnoreCase(nombrePartUsu));
+		System.out.println("Partitura borrada correctamente.\n");
+
+		for (Piano p2 : pianos) {
+			
+			if (!p2.getNombrePianista().equalsIgnoreCase(nombrePartUsu)) {
+				
+				System.out.println("No se ha encontrado a ese autor.");
+				
+			}
+			
+		}
+		
+	}
+	
 	@Override
 	public void mostrarInstrumento() {
 		

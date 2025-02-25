@@ -16,12 +16,12 @@ public class Main {
 //		Solicitamos que quiere hacer el usuario
 		do {
 			
-			System.out.println("¿Quieres agregar una partitura o tocar una partitura?\n1. Agregar partitura\n2. Tocar partitura\n3. Salir");
+			System.out.println("¿Quieres agregar una partitura o tocar una partitura?\n1. Agregar partitura\n2. Tocar partitura\n3. Eliminar partitura\n4. Salir");
 			
 			switch (respuestaUsuario = sc.nextLine().charAt(0)) {
 			case '1':
 				
-				System.out.println("\nVamos a agregar una nueva nota!");
+				System.out.println("\nVamos a agregar una nueva partitura!");
 				agregarPartitura();
 				break;
 			
@@ -33,6 +33,12 @@ public class Main {
 				
 			case '3':
 				
+				System.out.println("\nVeamos cual no te convence...");
+				eliminarPartitura();
+				break;
+				
+			case '4':
+				
 				System.out.println("Saliendo... Hasta luego!");
 				break;
 				
@@ -42,7 +48,7 @@ public class Main {
 				
 			}
 			
-		} while (respuestaUsuario != '3');
+		} while (respuestaUsuario != '4');
 		
 	}
 	
@@ -66,7 +72,8 @@ public class Main {
 			
 			System.out.println("Adelante! Grabaremos una partitura con el piano\nCuando acabes de agregarla introduce la tecla 'x'");
 			
-			while (partituraTerminada != true) { // Bucle infinito hasta que se ingrese "salir"
+//			Bucle infinito hasta que se ingrese la tecla salir 'x'
+			while (partituraTerminada != true) {
 				
 	            String nota = sc.nextLine();
 	            
@@ -78,7 +85,7 @@ public class Main {
 	            }
 	            
 //	            Agregamos la nota en un ArrayList de notas
-	            notasMusicales.add(nota); // Agregamos la nota a la lista
+	            notasMusicales.add(nota);
 	            
 	        }
 			
@@ -86,11 +93,13 @@ public class Main {
 			Piano p = new Piano(marcaPianoUsu, nombrePianistaUsu, notasMusicales);
 			pianos.add(p);
 			
-//			Mostramos la partitura junto los datos del Pianista
+//			Mostramos la partitura junto los datos del Pianista para verificar si está bien
 			p.mostrarInstrumento();
 			
 		} else if (instrumentoUsuario == '2') {
 			
+			
+//			Solicitamos info del guitarrista
 			System.out.println("¿Tocará una guitarra eléctrica o no? false / true");
 			boolean guitarraElecOno = sc.nextBoolean();
 			System.out.println("¿Cuantas cuerdas tendrá tu guitarra?");
@@ -101,19 +110,22 @@ public class Main {
 			
 			System.out.println("Adelante! Grabaremos una partitura con el piano\nCuando acabes de agregarla introduce la tecla 'x'");
 			
-			while (partituraTerminada != true) { // Bucle infinito hasta que se ingrese "salir"
+// 			Bucle infinito hasta que se ingrese "salir"
+			while (partituraTerminada != true) {
 				
 	            String nota = sc.nextLine();
 	            
+//	            Al estar aqui el 'IF' hacemos que no guarde la tecla 'x' en el Array
 	            if (nota.equalsIgnoreCase("x")) {
 	            	
+// 					Salimos del bucle cuando el usuario escriba "salir"
 	            	partituraTerminada = true;
-	                break; // Salimos del bucle cuando el usuario escriba "salir"
+	                break;
 	                
 	            }
 	            
-//	            Agregamos la nota en un ArrayList de notas
-	            notasMusicales.add(nota); // Agregamos la nota a la lista
+//	            Agregamos la nota en un ArrayList de notasmusicales
+	            notasMusicales.add(nota);
 	            
 	        }
 			
@@ -135,6 +147,8 @@ public class Main {
 
 	public static void tocarPartitura () {
 		Scanner sc = new Scanner (System.in);
+		
+//		Objetos auxiliares
 		Piano pAux = new Piano ();
 		Guitarra gAux = new Guitarra();
 		
@@ -149,6 +163,31 @@ public class Main {
 		} else if (respuestaUsuario == '2') {
 			
 			gAux.interpretar();
+			
+		}
+		
+	}
+	
+	public static void eliminarPartitura () {
+		Scanner sc = new Scanner (System.in);
+		
+		Piano pAux = new Piano ();
+		Guitarra gAux = new Guitarra();
+		
+		System.out.println("\n¿De que instrumento quieres borrar la partitura?\n1. Piano\n2. Guitarra");
+		char eleccionUsu = sc.nextLine().charAt(0);
+		
+		if (eleccionUsu == '1') {
+			
+			pAux.eliminarPartitura();
+			
+		} else if (eleccionUsu == '2') {
+			
+			gAux.eliminarPartitura();
+			
+		} else {
+			
+			System.out.println("Introduzca un número válido");
 			
 		}
 		

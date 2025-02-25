@@ -43,4 +43,6 @@ public abstract class Instrumento {
 //	Creamos el metodo abstracto mostrarInstrumento para las clases
 	public abstract void mostrarInstrumento();
 	
+	public abstract void eliminarPartitura();
+	
 }
