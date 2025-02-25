@@ -28,9 +28,21 @@ public class Circulo extends FigurasGeometricas {
 //	================ METODOS ================
 	@Override
 	public double calcularArea () {
+		double area;
 		
+		System.out.println("____________________________________________\n");
 		
-		return 7.8;
+        System.out.println("   ***   ");
+        System.out.println(" *     * \t   > Formula <");
+        System.out.println("*       *\t A = PI * r(adio) ");
+        System.out.println(" *     * ");
+        System.out.println("   ***   ");
+		
+		area = Math.PI * radio;
+		System.out.println("El area del circulo es -> " + area);
+		System.out.println("____________________________________________\n\n");
+		
+		return area;
 	}
 	
 }
