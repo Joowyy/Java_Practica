@@ -48,6 +48,7 @@ public class Guitarra extends Instrumento {
 	public void interpretar() {
 		Scanner sc = new Scanner(System.in);
 		ArrayList<Guitarra> guitarras = GestionGuitarra.getGuitarras();
+		Boolean partituraEncontrada = false;
 		
 		System.out.println("Aqui tienes todas las partituras a tocar");
 		
@@ -79,6 +80,7 @@ public class Guitarra extends Instrumento {
 			        Thread.sleep(1000);
 			        
 			        System.out.println("   🎶🎵 🎶🎵        🎶🎵 🎶🎵 \n");
+			        partituraEncontrada = true;
 					
 				} catch (InterruptedException e) {
 					
@@ -88,11 +90,11 @@ public class Guitarra extends Instrumento {
 				
 			}
 				
-			if (!nombreGuitarristaUsu.equalsIgnoreCase(g2.getNombreGuitarrista())) {
-					
-				System.out.println("No se ha encontrado a ese autor\n");
-						
-			}
+		}
+		
+		if (partituraEncontrada != true) {
+			
+			System.out.println("\nNo se ha encontrado a ese autor.\n");
 			
 		}
 		

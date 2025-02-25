@@ -39,6 +39,7 @@ public class Piano extends Instrumento{
 	public void interpretar() {
 		Scanner sc = new Scanner (System.in);
 		ArrayList<Piano> pianos = GestionPiano.getPianos();
+		Boolean partituraEncontrada = false;
 		
 		System.out.println("Aqui tienes todas las partituras guardadas de piano");
 		
@@ -75,6 +76,8 @@ public class Piano extends Instrumento{
 			        
 			        System.out.println("   🎶🎵 🎶🎵        🎶🎵 🎶🎵 \n");
 			        
+			        partituraEncontrada = true;
+			        
 			    } catch (InterruptedException e) {
 			        
 			    	e.printStackTrace();
@@ -82,12 +85,12 @@ public class Piano extends Instrumento{
 			    }
 					
 			}
-				
-			if (!partituraUsuario.equalsIgnoreCase(p2.getNombrePianista())) {
-				
-				System.out.println("No se ha encontrado a ese autor\n");
-					
-			}
+			
+		}
+		
+		if (partituraEncontrada != true) {
+			
+			System.out.println("\nNo se ha encontrado a ese autor.\n");
 			
 		}
 
