@@ -1,5 +1,7 @@
 package FigurasGeometricas;
 
+import java.text.DecimalFormat;
+
 public class Triangulo extends Poligono {
 
 	//	================ CONSTRUCTORES ================
@@ -14,6 +16,8 @@ public class Triangulo extends Poligono {
 	@Override
 	public double calcularArea () {
 		
+		DecimalFormat df = new DecimalFormat("#0.00");
+		
 		System.out.println("____________________________________________\n");
 		
         System.out.println("    *    ");
@@ -23,7 +27,7 @@ public class Triangulo extends Poligono {
         System.out.println("*********");
 
 		double area = (base * altura) / 2;
-		System.out.println("El area del triangulo es -> " + area);
+		System.out.println("El area del triangulo es -> " + df.format(area));
 		System.out.println("____________________________________________\n\n");
 		
 		return area;

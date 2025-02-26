@@ -3,7 +3,7 @@ package FigurasGeometricas;
 public class Main {
 
 	public static void main(String[] args) {
-		
+
 		Circulo c1 = new Circulo("Circulo de Miguel", 5.7);
 		c1.calcularArea();
 		

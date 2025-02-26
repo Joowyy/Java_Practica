@@ -1,5 +1,7 @@
 package FigurasGeometricas;
 
+import java.text.DecimalFormat;
+
 public class Circulo extends FigurasGeometricas {
 
 //	================ ATRIBUTOS ================
@@ -28,7 +30,8 @@ public class Circulo extends FigurasGeometricas {
 //	================ METODOS ================
 	@Override
 	public double calcularArea () {
-		double area;
+
+		DecimalFormat df = new DecimalFormat("#0.00");
 		
 		System.out.println("____________________________________________\n");
 		
@@ -38,8 +41,8 @@ public class Circulo extends FigurasGeometricas {
         System.out.println(" *     * ");
         System.out.println("   ***   ");
 		
-		area = Math.PI * radio;
-		System.out.println("El area del circulo es -> " + area);
+		double area = Math.PI * radio;
+		System.out.println("El area del circulo es -> " + df.format(area));
 		System.out.println("____________________________________________\n\n");
 		
 		return area;
